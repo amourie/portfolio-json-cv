@@ -1,0 +1,7 @@
+Amourie Fourie
+amourie@gmail.com
+
+Sources Attribution:
+* <hr> rules are from csstricks.com
+* code in general gathered from working through the Udacity JavaScript course.
+
