@@ -1,20 +1,18 @@
 
 //*******************BIO STARTS HERE***********************************//
 var skills = ["JavaScript","HTML,CSS","jQuery","Quality assurance and testing","Project Management", "CMS: Umbraco, Django, WordPress, custom etc.", "Information Architecture"];
-//$("#main").append(skills[1]);
 
 var bio = {
 
     "name" : "Amourie",
     "surname" : "Fourie",
     "role" : "Front-End Developer in Brisbane, Australia",
-    "welcomeMessage" : "Welcome!",
-    "extraBlurb" : "Curriculum Vitae",
+    "welcomeMessage" : "I'm a web professional with over ten years experience as a Webmaster looking after the digital and web presences of large organisations. The roles I've been in have been hybrid roles exposing me to a range of web development practises and web project management methodologies. My true passion is web development and I would like to secure a full-time role in web development where I can have the opportunity to hone and grow my skills. I love learning new technologies. I am not restricted to front-end development as I've done back-end development in the past with .NET C# / Razor Syntax and Umbraco. My focus currently is on Full-stack JavaScript development.",
+    "extraBlurb" : "CV",
     "biopic" : "images/amourie-profile-pic.jpg",
     "contacts" : {
-        "twitter" : "@amourief",
-        "location" : "Brisbane",
-        "email" : "email@email.com",
+        "twitter" : "http://www.twitter.com/amourief",
+        "linkedIn" : "https://au.linkedin.com/in/amourie-fourie-00b01028",
         "github" : "https://github.com/amourie/",
     },
     //skills is an array defined further above
@@ -25,24 +23,22 @@ var bio = {
 bio.display = function() {
 
     var bioRole = HTMLheaderRole.replace("%data%",bio.role);
-    $("#header").prepend(bioRole);
+    $("#header-profileInfo").prepend(bioRole);
 
     var bioFullName = HTMLheaderName.replace("%data%",bio.name + " " + bio.surname + ": " + bio.extraBlurb);
-    $("#header").prepend(bioFullName);
+    $("#header-profileInfo").prepend(bioFullName);
 
     var bioWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-    $("#header").append(bioWelcomeMsg);
+    $("#welcome").append(bioWelcomeMsg);
 
     var bioPic = HTMLbioPic.replace("%data%",bio.biopic);
-    $("#header").prepend(bioPic);
+    $("#header-profilePic").prepend(bioPic);
 
     //get bio.contacts properties
     var bioTwitter = bio.contacts.twitter;
-    var bioLocation = bio.contacts.location;
-    var bioEmail = bio.contacts.email;
+    var bioLinkedIn = bio.contacts.linkedIn;
     var bioGithub = bio.contacts.github;
-    var bioMobile = bio.contacts.mobile;
-    var bioFacebook = bio.contacts.facebook;
+
     var bioTempUrl = "";
 
     if (bioTwitter.length > 1)
@@ -50,15 +46,10 @@ bio.display = function() {
         $("#topContacts").append(HTMLtwitter.replace("%data%",bioTwitter));
         $("#footerContacts").append(HTMLtwitter.replace("%data%",bioTwitter));
     }
-    if (bioLocation.length > 1)
+      if (bioLinkedIn.length > 1)
     {
-        $("#topContacts").append(HTMLlocation.replace("%data%",bioLocation));
-        $("#footerContacts").append(HTMLlocation.replace("%data%",bioLocation));
-    }
-    if (bioEmail.length > 1)
-    {
-        $("#topContacts").append(HTMLemail.replace("%data%",bioEmail));
-        $("#footerContacts").append(HTMLemail.replace("%data%",bioEmail));
+        $("#topContacts").append(HTMLlinkedIn.replace("%data%",bioLinkedIn));
+        $("#footerContacts").append(HTMLlinkedIn.replace("%data%",bioLinkedIn));
     }
     if (bioGithub.length > 1)
     {
@@ -67,17 +58,15 @@ bio.display = function() {
     }
 
 
-    $("#skillsDiv").append(HTMLskillsStart);
+    $("#skills").append(HTMLskillsStart);
     if (bio.skills.length > 0)
     {
         for (var skill in bio.skills)
         {
-           $("#skills").append(HTMLskills.replace("%data%",bio.skills[skill]));
-        }
+           $("#skillsDiv").append(HTMLskills.replace("%data%",bio.skills[skill]));
+                   }
     }
-
 }
-
 //*******************BIO ENDS HERE***********************************//
 
 //*******************PROJECTS START HERE*********************************//
@@ -141,21 +130,21 @@ var education  = {
         {
         "name" : "University of Pretoria",
         "location" : "Pretoria, South Africa",
-        "degree" : "B.IS Multimedia specializing in Multimedia (& Computer Science)",
+        "degree" : "B.IS Multimedia specializing in Multimedia (Computer Science as dual major)",
         "dates" : "",
         "url" : "http://www.up.ac.za/"
 
         },
         {
         "name" : "Auckland University",
-        "location" : "Auckland",
+        "location" : "Auckland, New Zealand",
         "degree" : "Project Management - Non-degree Purposes",
         "dates" : "2010",
         "url" : "https://www.auckland.ac.nz/"
         },
         {
         "name" : "Umbraco",
-        "location" : "Auckland",
+        "location" : "Auckland, New Zealand",
         "degree" : "Level 1 Development Certification",
         "dates" : "2013",
         "url" : "http://www.umbraco.com/"
@@ -187,13 +176,13 @@ education.display = function() {
     {
         $("#education").append(HTMLschoolStart);
 
-        eduName = HTMLschoolName.replace("%data%",education.schools[school].name);
-        $('.education-entry:last').append(eduName);
-
         eduDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
         $('.education-entry:last').append(eduDegree);
 
-        eduDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+        eduName = HTMLschoolName.replace("%data%",education.schools[school].name);
+        $('.education-entry:last').append(eduName);
+
+       eduDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
         $('.education-entry:last').append(eduDates);
 
         eduLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
@@ -218,21 +207,22 @@ var work = {
                 "title" : "Junior Technical Product Manager",
                 "location" : "Brisbane, Australia",
                 "dates" : "September 2016 - March 2017",
-                "description" : "insert desc here"
+                "description" : "I worked as a tecnical liaison between the business and the team of web developers in an agile team. The role requires technical and research skills and being able to translate business requirements into technical requirements. For example investigating the subscription model and identifying web development changes that need to happen to change the subscription process through means of a new API. Adopting new technologies or new tracking such as Segment, AppLinks, external analytics tools etc and scoping these changes in agile tickets as user stories. The role also included mobile app testing and general UAT testing. "
             },
             {
               "employer" : "NZME. New Zealand Media",
               "title" : "Webmaster / Web Developer",
               "location" : "Nanjing, China",
               "dates" : "April 2009 - March 2015",
-              "description" : "insert desc here"
+              "description" : "This role was a hands-on Webmaster role where I served a portfolio of ten brands within the company. The role involved. "
           },
             {
                 "employer" : "Microsoft South Africa (outsourced by IT Event Management)",
                 "title" : "Webmaster",
                 "location" : "Johannesburg, South Africa",
                 "dates" : "April 2005 – February 2008",
-                "description" : "insert desc here"
+                "description" : "In this role, I localised and implemented global campaigns and websites for the local South African market. This included new site launches, product launches and event sites.  Created and maintained web portals and online campaign elements, web elements, forms and other online functionality using Microsoft’s own internal web tools and CMS. Vendor management on outsourced projects that required external design or development work. Supported global production teams: participated in user acceptance testing of global web properties before localization to SA market."
+
             },
              {
                 "employer" : "Nanjing University of Finance and Economics",
@@ -283,160 +273,3 @@ projects.display();
 
 //******************Google map is called here ***********************************//
 $("#mapDiv").append(googleMap);
-
-
-//******************STARTS X AND Y CLICK LOCATION ENDS HERE***********************************//
-
-
-/*UNNECESSARY CODE FOLLOWS BELOW - part of JavaScript coursework - therefore included with submission so I can refer to it where necessary.
-
-
-
-//remove html angle brackets with this code below:
-var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
-
-var charEscape = function(_html) {
-    var newHTML = _html;
-    // How will you make sure that newHTML doesn't contain any < or > ?
-    // Your code goes here!
-    newHTML = _html.replace(/</g, "&lt;");
-    newHTML = newHTML.replace(/>/g, "&gt;");
-
-
-    return newHTML;
-};
-
-//when this button is clicked, a name like SeBastian alexander Thrun should appear up the top...
-
-
-var name = bio.name;
-console.log("bio.name " + name);
-function inName(name){
-    //console.log("Received name parameter is " + name);
-    var nameArray = name.split(" ");
-    //nameCombo[0].toUpperCase();
-    var length = nameArray.length;
-    var mergedName = "";
-    //console.log("surname in caps " + nameArray[length - 1]);
-    //console.log("Merged name is " + mergedName);
-    for (var x = 0; x < length-1; x++)
-    {
-        //ensure a name entered like sEbastian is lowercased
-        var capitalized = nameArray[x].substr(0,1).toUpperCase() + nameArray[x].substring(1).toLowerCase();
-        //console.log("Capitalised name is " + capitalized);
-        //nameArray[item] = capitalized;
-        mergedName += capitalized + " ";
-       // console.log("Merged name is " + mergedName);
-    }
-    //getting the last array item which is the surname and making it all CAPS
-    nameArray[length - 1] = nameArray[length - 1].toUpperCase();
-
-    //adding surname to the returned string
-    mergedName += nameArray[length-1];
-    //console.log("Merged name is " + mergedName);
-    //console.log(typeof(mergedName));
-    return mergedName;
-}
-
-//console.log(inName("sebastian alex thrun"));
-$("#main").append(internationalizeButton);
-
-
-var workObj = {
-
-    "jobTitle" : "web person",
-    "yearsWorked" : 8,
-    "city": "Brisbane",
-    "company": "Triple P"
-}
-
-var eduObj = {
-
-    "uni" : "University of Pretoria",
-    "degree" : "B.IS Specialization in Multimedia",
-    "year": 2003
-
-}
-$("#main").append("<br>Current Position is: " + workObj.jobTitle);
-$("#main").append("<br>Current Position is: " + eduObj.degree);
-
-var awesomethoughts = "these are my awesome thoughts";
-
- var funThoughts = awesomethoughts.replace("awesome","fun");
- console.log(funThoughts);
-
-$("#main").append(funThoughts);
-
-
-//"cAmEROn PittMAN" into "Cameron PITTMAN". Your answer should be a single string saved to the variable called finalName.
-
-var name = "AlbERt EINstEiN";
-
-function nameChanger(oldName) {
-    var finalName = oldName;
-    // Your code goes here!
-
-    var nameSplits = finalName.split(" ");
-
-    nameSplits[0] = nameSplits[0].toLowerCase();
-    nameSplits[0] = nameSplits[0].substring(0,1).toUpperCase() + nameSplits[0].substring(1);
-    nameSplits[1] = nameSplits[1].toUpperCase();
-
-    finalName = nameSplits.join(" | ");
-    // Don't delete this line!
-    return finalName;
-}
-
-
-console.log(nameChanger(name));
-
-
-
-function locationizer(workObj){
-   var locationsArray = [];
-
-   for (item in workObj.jobs)
-   {
-    var location = workObj.jobs[item].location;
-    locationsArray.push(location);
-    console.log(location);
-   }
-   return locationsArray;
-}
-
-console.log(locationizer(work));
-
-
-$(document).click(function(loc) {
-    var x = loc.pageX;
-    var y = loc.pageY;
-    logClicks(x,y);
-});
-
-
-var sampleArray = [4,5,7,6,7,8,9,12];
-
-var incrementLastArrayElement = function(_array) {
-    var newArray = [];
-    /* Your code should make newArray equal to an array that has the same
-    // values as _array, but the last number has increased by one.
-
-    // For example:
-    // _array = [1, 2, 3];
-    // turns into:
-    // newArray = [1, 2, 4];
-
-    // Your code goes in here!
-    newArray = _array;
-    /*for (var i = 0; i < newArray.length; i++) {
-     console.log(newArray[i]);
-    }
-    //newArray[newArray.length-1] = newArray[newArray.length-1] + 1;
-    newArray[newArray.length-1]++;
-    return newArray;
-};
-
-// Did your code work? The line below will tell you!
-console.log(incrementLastArrayElement(sampleArray));
-
-*/

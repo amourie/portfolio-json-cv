@@ -14,27 +14,25 @@ replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h2>%data%<h2/>';
+console.log("got here");
+var HTMLcontactGeneric = '<span class="item-copy">%contact%</span>';
+var HTMLtwitter = '<a href="%data%" target="blank"><i class="fa fa-twitter-square fa-4" aria-hidden="true"></i></a>';
+var HTMLgithub = '<a href="%data%" target = "blank"><i class="fa fa-github-square fa-4" aria-hidden="true"></i>';
+var HTMLlinkedIn = '<a href="%data%" target = "blank"><i class="fa fa-linkedin-square fa-4" aria-hidden="true"></i>';
+console.log("got here 2");
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text"><a href="" target = "blank">%data%</span></a></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text"><a href="" target = "blank">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
-
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbioPic = '<div class="profilePic selfImg" style="background-image: url(%data%)"></div>';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h2 id="skills-h3">Skills at a Glance:</h2><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="skills-text">%data%</span></li>';
+var HTMLskillsStart = '<div class="skills"></div>';
+var HTMLskills = '<div>%data%</div>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkEmployer = '<div class="work-entry-place">%data%';
+var HTMLworkTitle = ' - %data%</div>';
+var HTMLworkDates = '<div class="work-entry-dates">%data%</div>';
+var HTMLworkLocation = '<div class="work-entry-location">%data%</div>';
+var HTMLworkDescription = '<div class="work-entry-desc"><p><br>%data%</p></div>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
@@ -43,11 +41,10 @@ var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolName = '<div class="education-entry-name"<a href="#">%data%</a></div>';
+var HTMLschoolDegree = '<div class="education-entry-degree">%data%</div>';
+var HTMLschoolDates = '<div class="education-entry-date">%data%</div>';
+var HTMLschoolLocation = '<div class="education-entry-location">%data%</div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -58,36 +55,6 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
-
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
-$(document).ready(function() {
-  $('button').click(function() {
-    var iName = inName($("#name").text()) || function(){};
-    $('#name').html(iName);
-  });
-});
-
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
-clickLocations = [];
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-  // your code goes here!
-});
 
 
 
