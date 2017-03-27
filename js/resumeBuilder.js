@@ -1,6 +1,6 @@
 
 //*******************BIO STARTS HERE***********************************//
-var skills = ["JavaScript","HTML,CSS","Coding","Quality assurance and testing","Project Management", "UX Design", "Information Architecture"];
+var skills = ["JavaScript","HTML,CSS","jQuery","Quality assurance and testing","Project Management", "CMS: Umbraco, Django, WordPress, custom etc.", "Information Architecture"];
 //$("#main").append(skills[1]);
 
 var bio = {
@@ -8,16 +8,14 @@ var bio = {
     "name" : "Amourie",
     "surname" : "Fourie",
     "role" : "Front-End Developer in Brisbane, Australia",
-    "welcomeMessage" : "...in ❤ with front-end dev & design... My motto is: \"Any product that needs a manual to work is broken.\" - Elon Musk",
-    "extraBlurb" : "Online Curriculum Vitae",
-    "biopic" : "images/amourie-profile.jpg",
+    "welcomeMessage" : "Welcome!",
+    "extraBlurb" : "Curriculum Vitae",
+    "biopic" : "images/amourie-profile-pic.jpg",
     "contacts" : {
         "twitter" : "@amourief",
         "location" : "Brisbane",
         "email" : "email@email.com",
         "github" : "https://github.com/amourie/",
-        "mobile" : "555-555-555",
-        "facebook" : "http://www.facebook.com/profilename"
     },
     //skills is an array defined further above
     "skills" : skills
@@ -67,11 +65,7 @@ bio.display = function() {
         $("#topContacts").append(HTMLgithub.replace("%data%",bioGithub));
         $("#footerContacts").append(HTMLgithub.replace("%data%",bioGithub));
     }
-    if (bioMobile.length > 1)
-    {
-        $("#topContacts").append(HTMLmobile.replace("%data%",bioMobile));
-        $("#footerContacts").append(HTMLmobile.replace("%data%",bioMobile));
-    }
+
 
     $("#skillsDiv").append(HTMLskillsStart);
     if (bio.skills.length > 0)
@@ -145,12 +139,10 @@ var education  = {
 
     "schools":  [
         {
-
         "name" : "University of Pretoria",
         "location" : "Pretoria, South Africa",
-        "degree" : "BA",
-        "majors" : ["Computer Science","Multimedia"],
-        "dates" : "2003",
+        "degree" : "B.IS Multimedia specializing in Multimedia (& Computer Science)",
+        "dates" : "",
         "url" : "http://www.up.ac.za/"
 
         },
@@ -158,34 +150,24 @@ var education  = {
         "name" : "Auckland University",
         "location" : "Auckland",
         "degree" : "Project Management - Non-degree Purposes",
-        "majors" : ["NDP"],
         "dates" : "2010",
         "url" : "https://www.auckland.ac.nz/"
         },
         {
         "name" : "Umbraco",
         "location" : "Auckland",
-        "degree" : "Non-degree Purposes",
-        "majors" : ["NDP"],
+        "degree" : "Level 1 Development Certification",
         "dates" : "2013",
         "url" : "http://www.umbraco.com/"
-        },
-                {
-        "name" : "Udacity - Front-End Nano-degree",
-        "location" : "Auckland",
-        "degree" : "Nano-degree",
-        "majors" : ["Front-End Web Development"],
-        "dates" : "2015",
-        "url" : "http://www.udacity.com/"
         }
     ],
 
     "onlineCourses" : [
     {
-        "title": "JavaScript Basics",
+        "title": "JavaScript Full Stack Tech Degree (in progress)",
         "url" : "www.teamtreehouse.com",
         "school" : "Team Tree House",
-        "date" : "2014",
+        "date" : "2017",
     },
     {
         "title": "Programming in C#",
@@ -230,37 +212,36 @@ education.display = function() {
 
 var work = {
 
-    "jobs" : [
+          "jobs" : [
             {
-                "employer" : "IT Event Management",
+                "employer" : "News Corp Australia",
+                "title" : "Junior Technical Product Manager",
+                "location" : "Brisbane, Australia",
+                "dates" : "September 2016 - March 2017",
+                "description" : "insert desc here"
+            },
+            {
+              "employer" : "NZME. New Zealand Media",
+              "title" : "Webmaster / Web Developer",
+              "location" : "Nanjing, China",
+              "dates" : "April 2009 - March 2015",
+              "description" : "insert desc here"
+          },
+            {
+                "employer" : "Microsoft South Africa (outsourced by IT Event Management)",
                 "title" : "Webmaster",
                 "location" : "Johannesburg, South Africa",
-                "dates" : "2000 - 2003",
-                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget imperdiet risus, non blandit erat. Ut suscipit neque ac est imperdiet, id volutpat lorem semper."
+                "dates" : "April 2005 – February 2008",
+                "description" : "insert desc here"
             },
              {
                 "employer" : "Nanjing University of Finance and Economics",
                 "title" : "English Teacher",
                 "location" : "Nanjing, China",
-                "dates" : "2000 - 2003",
-                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget imperdiet risus, non blandit erat. Ut suscipit neque ac est imperdiet, id volutpat lorem semper."
-            },
-              {
-                "employer" : "NZME. New Zealand Media",
-                "title" : "Webmaster, Front-End Developer",
-                "location" : "Nanjing, China",
-                "dates" : "2000 - 2003",
-                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget imperdiet risus, non blandit erat. Ut suscipit neque ac est imperdiet, id volutpat lorem semper."
-            },
-            {
-
-                "employer" : "Microsoft South Africa",
-                "location" : "Pretoria, South Africa",
-                "title" : "Web Manager",
-                "city" : "auckland",
-                "dates" : "2000 - 2003",
-                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget imperdiet risus, non blandit erat. Ut suscipit neque ac est imperdiet, id volutpat lorem semper."
+                "dates" : "February 2008 – January 2009",
+                "description" : "An overseas gap year experience."
             }
+
     ],
     "onlineCourses" : [
     {
@@ -303,21 +284,6 @@ projects.display();
 //******************Google map is called here ***********************************//
 $("#mapDiv").append(googleMap);
 
-
-
-//******************STARTS X AND Y CLICK LOCATION STARTS HERE***********************************//
-$(document).click(function(loc) {
-
-    var x = loc.pageX;
-    var y = loc.pageY;
-    logClicks(x,y);
-});
-
-function logClicks(x,y)
-{
-
-    console.log("This is X,Y location of your mouseclick " + x + ", " + y);
-}
 
 //******************STARTS X AND Y CLICK LOCATION ENDS HERE***********************************//
 
@@ -474,5 +440,3 @@ var incrementLastArrayElement = function(_array) {
 console.log(incrementLastArrayElement(sampleArray));
 
 */
-
-
