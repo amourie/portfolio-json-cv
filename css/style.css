@@ -208,6 +208,11 @@ footer a {
 }
 #footer-date {
   font-size: 1.6em;
+  text-align: left;
+
+}
+.floatLeft {
+  float: left;
 }
 #footerContacts {
   padding-top: 40px;

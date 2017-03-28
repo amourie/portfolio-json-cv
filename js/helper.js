@@ -56,6 +56,26 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
+/*
+The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+*/
+clickLocations = [];
+
+function logClicks(x,y) {
+  clickLocations.push(
+    {
+      x: x,
+      y: y
+    }
+  );
+  console.log('x location: ' + x + '; y location: ' + y);
+}
+
+$(document).click(function(loc) {
+  // your code goes here!
+});
+
+
 
 
 /*
@@ -96,7 +116,7 @@ function initializeMap() {
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
-
+    console.log("loc is " + bio.contacts.location);
     // iterates through school locations and appends each location to
     // the locations array
     for (var school in education.schools) {
@@ -104,14 +124,16 @@ function initializeMap() {
 
     }
 
+
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
-
+    console.log("yeah");
     }
-
+console.log(locations);
     return locations;
+
   }
 
   /*

@@ -14,6 +14,7 @@ var bio = {
         "twitter" : "http://www.twitter.com/amourief",
         "linkedIn" : "https://au.linkedin.com/in/amourie-fourie-00b01028",
         "github" : "https://github.com/amourie/",
+          "location" : "Brisbane, Australia"
     },
     //skills is an array defined further above
     "skills" : skills
@@ -273,3 +274,20 @@ projects.display();
 
 //******************Google map is called here ***********************************//
 $("#mapDiv").append(googleMap);
+
+
+
+
+//******************STARTS X AND Y CLICK LOCATION STARTS HERE***********************************//
+$(document).click(function(loc) {
+
+    var x = loc.pageX;
+    var y = loc.pageY;
+    logClicks(x,y);
+});
+
+function logClicks(x,y)
+{
+
+    console.log("This is X,Y location of your mouseclick " + x + ", " + y);
+}
